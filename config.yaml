@@ -1,0 +1,21 @@
+data:
+  default_tickers: ["AAPL", "MSFT", "GOOGL", "AMZN", "TSLA", "META", "NVDA", "JPM", "JNJ", "XOM"]
+  start_date: "2020-01-01"
+  end_date: "2023-12-31"
+  risk_free_rate: 0.02
+
+optimization:
+  num_portfolios: 10000
+  objectives: ["max_sharpe", "min_volatility", "max_return", "risk_parity"]
+  constraints:
+    no_shorting: true
+    max_weight: 0.3
+    min_weight: 0.0
+
+visualization:
+  theme: "plotly_white"
+  colors:
+    - "#1f77b4"
+    - "#ff7f0e"
+    - "#2ca02c"
+    - "#d62728"
