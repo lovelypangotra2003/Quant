@@ -17,7 +17,6 @@ from utils.calculators import PortfolioCalculators
 from validation.real_time_tracker import RealTimePortfolioTracker
 # from validation.simulated_forward_tester import SimulatedForwardTestingEngine
 from validation.simulated_forward_tester import WalkForwardValidationEngine
-from validation.forward_tester import ForwardTestingEngine
 from validation.validation_metrics import RealWorldValidation
 from utils.comparison_engine import PortfolioComparisonEngine
 
@@ -205,21 +204,21 @@ class EnhancedPortfolioOptimizationDashboard:
     #         st.error(f"Failed to initialize simulated forward testing: {e}")
     #         return False
     
-    def setup_alpaca_integration(self, alpaca_config: Dict):
-        """Initialize Alpaca integration for paper trading."""
-        try:
-            if alpaca_config.get('api_key') and alpaca_config.get('secret_key'):
-                self.forward_tester = ForwardTestingEngine(
-                    alpaca_config['api_key'], 
-                    alpaca_config['secret_key']
-                )
-                return True
-            else:
-                st.warning("Please provide Alpaca API credentials for validation")
-                return False
-        except Exception as e:
-            st.error(f"Failed to initialize Alpaca: {e}")
-            return False
+    # def setup_alpaca_integration(self, alpaca_config: Dict):
+    #     """Initialize Alpaca integration for paper trading."""
+    #     try:
+    #         if alpaca_config.get('api_key') and alpaca_config.get('secret_key'):
+    #             self.forward_tester = ForwardTestingEngine(
+    #                 alpaca_config['api_key'], 
+    #                 alpaca_config['secret_key']
+    #             )
+    #             return True
+    #         else:
+    #             st.warning("Please provide Alpaca API credentials for validation")
+    #             return False
+    #     except Exception as e:
+    #         st.error(f"Failed to initialize Alpaca: {e}")
+    #         return False
     
     # def render_validation_section(self, params: Dict, returns_data: pd.DataFrame, metrics: Dict):
     #     """Render real-world validation section with proper layout."""
